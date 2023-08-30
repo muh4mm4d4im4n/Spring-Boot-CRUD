@@ -7,5 +7,5 @@ import com.demo.spring.demospring.model.Employee;
 public interface EmployeeRepo extends JpaRepository<Employee, Integer>{
 
     Optional<Employee> findById(String id);
-    
+    Optional<Employee> findById(long id);
 }

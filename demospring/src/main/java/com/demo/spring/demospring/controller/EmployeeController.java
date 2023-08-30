@@ -37,8 +37,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/update/{id}")
-    public String updateEmployee(@PathVariable String id, @RequestBody Employee employee){
-        Employee updateEmployee = employeerepo.findById((String) id).get();
+    public String updateEmployee(@PathVariable long id, @RequestBody Employee employee){
+        Employee updateEmployee = employeerepo.findById((long) id).get();
         updateEmployee.setName(employee.getName());
         updateEmployee.setAge(employee.getAge());
         updateEmployee.setRole(employee.getRole());
@@ -49,8 +49,8 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable String id){
-        Employee deleteEmployee = employeerepo.findById((String) id).get();
+    public String deleteEmployee(@PathVariable long id){
+        Employee deleteEmployee = employeerepo.findById((long) id).get();
         employeerepo.delete(deleteEmployee);
         return "Delete user with the id " +id;
     }
